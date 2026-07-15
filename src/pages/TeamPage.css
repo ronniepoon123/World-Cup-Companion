@@ -1,0 +1,56 @@
+.team-page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.back-button {
+  background: #1f4ea8;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.back-button:hover {
+  background: #163b80;
+}
+
+.team-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.team-crest-large {
+  width: 170px;
+  height: 170px;
+  object-fit: contain;
+}
+
+.team-header h1 {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.team-info {
+  display: inline-block;
+  text-align: left;
+  line-height: 2;
+}
+
+.player-section {
+  margin-top: 50px;
+}
+
+.player-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 80px;
+}
