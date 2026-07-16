@@ -53,7 +53,7 @@ From the project root directory, start the Express backend:
 
 ```bash
 cd ~/world-cup-companion
-node server/server.js
+npm run server
 ```
 
 The backend should start successfully and display:
