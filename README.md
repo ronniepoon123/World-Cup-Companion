@@ -47,9 +47,34 @@ The project is built as a modern frontend application focused on clean UI, reusa
 ## 📂 Project Structure
 
 
-## Running the Backend Server
+## Running the Project
 
-From the project root directory, start the Express backend:
+Open **two terminals in VS Code**.
+
+### Terminal 1 – Frontend (React + Vite)
+
+From the project root directory:
+
+```bash
+cd ~/world-cup-companion
+npm run dev
+```
+
+The frontend will start and display something similar to:
+
+```
+VITE v8.x.x ready
+
+➜ Local: http://localhost:5173
+```
+
+> If port 5173 is already in use, Vite may use another port (e.g. 5174).
+
+---
+
+### Terminal 2 – Backend (Express API)
+
+From the project root directory:
 
 ```bash
 cd ~/world-cup-companion
@@ -58,29 +83,21 @@ npm run server
 
 The backend should start successfully and display:
 
-```text
-API KEY loaded: YES
+```
+◇ injected env (1) from .env
 🚀 Server running on http://localhost:3001
 ```
 
-Make sure the `.env` file is located in the project root directory and contains the required API key:
+---
 
-```env
-FOOTBALL_API_KEY=your_api_key_here
+### Open the application
+
+Visit:
+
 ```
-
-## Running the Frontend
-
-Open another terminal window and run:
-
-```bash
-cd ~/world-cup-companion
-npm run dev
-```
-
-Then open the local development URL provided by Vite, usually:
-
-```text
 http://localhost:5173
 ```
 
+(or whichever port Vite reports).
+
+The React frontend will communicate with the Express backend running on port **3001**.
