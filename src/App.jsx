@@ -1,77 +1,53 @@
 import { Routes, Route } from "react-router-dom";
+import KnockoutPage from "./pages/KnockoutPage";
+import HomePage from "./pages/HomePage";
+import TeamsPage from "./pages/TeamsPage";
 import TeamPage from "./pages/TeamPage";
-import { useState, useEffect } from "react";
-import Navbar from "./components/Navbar";
-import TeamCard from "./components/TeamCard";
-import "./App.css";
+import FixturesPage from "./pages/FixturesPage";
+import MatchPage from "./pages/MatchPage";
+import StandingsPage from "./pages/StandingsPage";
 
 function App() {
-const [search, setSearch] = useState("");
-const [teams, setTeams] = useState([]);
-useEffect(() => {
-  fetch("http://localhost:3001/api/worldcup/teams")
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
+  return (
+    <Routes>
 
-      setTeams(data.teams);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-}, []);
-  const filteredTeams = teams.filter((team) =>
-    team.name.toLowerCase().includes(search.toLowerCase())
-  );
-
-return (
-  <Routes>
-
-    <Route
-      path="/"
-      element={
-        <div className="container">
-      <Navbar />
-
-      <h1>Welcome to World Cup Companion!</h1>
-      <p>
-        Search for your favourite team, browse fixtures,
-        standings, and player statistics.
-      </p>
-        <input
-        type="text"
-        placeholder="Search for a team..."
-        value={search}
-        onChange={(event) => setSearch(event.target.value)}
+      <Route
+        path="/"
+        element={<HomePage />}
       />
-            <p>Search: {search}</p>
-            <p>There are {teams.length} teams.</p>
-<h2>🌍 Qualified Teams</h2>
 
-<p>Showing {filteredTeams.length} team(s).</p>
+      <Route
+        path="/teams"
+        element={<TeamsPage />}
+      />
 
-<div className="team-grid">
-  {filteredTeams.map((team) => (
-    <TeamCard
-      key={team.id}
-      team={team}
-    />
-  ))}
-</div>
+      <Route
+  path="/standings"
+  element={<StandingsPage />}
+/>
 
+<Route
+  path="/knockout"
+  element={<KnockoutPage />}
+/>
 
-        </div>
-      }
-    />
+      <Route
+        path="/team/:id"
+        element={<TeamPage />}
+      />
 
-    <Route
-      path="/team/:id"
-      element={<TeamPage />}
-    />
+      <Route
+        path="/fixtures"
+        element={<FixturesPage />}
+      />
 
-  </Routes>
-);
+      <Route
+        path="/match/:id"
+        element={<MatchPage />}
+      />
+
+    </Routes>
+  );
 }
-
 
 export default App;

@@ -1,15 +1,64 @@
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
   return (
-    <nav>
-      <h2>🏆 World Cup Companion</h2>
+    <header className="navbar">
 
-      <button>Home</button>
-      <button>Fixtures</button>
-      <button>Standings</button>
-      <button>Teams</button>
-    </nav>
+      <div className="navbar-logo">
+
+        <span className="logo-icon">
+          🏆
+        </span>
+
+        <div>
+
+          <h2>World Cup Companion</h2>
+
+          <span>
+            FIFA World Cup 2026
+          </span>
+
+        </div>
+
+      </div>
+
+      <nav className="navbar-links">
+
+        <NavLink
+          to="/"
+          end
+          className={({ isActive }) =>
+            isActive ? "active" : ""
+          }
+        >
+          🏠 Home
+        </NavLink>
+
+        <NavLink
+          to="/fixtures"
+          className={({ isActive }) =>
+            isActive ? "active" : ""
+          }
+        >
+          📅 Fixtures
+        </NavLink>
+
+        <NavLink
+          to="/"
+        >
+          📊 Standings
+        </NavLink>
+
+        <NavLink
+          to="/"
+        >
+          🌍 Teams
+        </NavLink>
+
+      </nav>
+
+    </header>
   );
 }
 

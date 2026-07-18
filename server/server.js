@@ -20,32 +20,22 @@ const footballApi = axios.create({
   },
 });
 
-/*
- * Root route
- */
 app.get("/", (req, res) => {
-  res.send("⚽ World Cup Companion API is running!");
+  res.send("API is working!");
 });
 
-/*
- * GET all competitions
- */
-app.get("/api/competitions", async (req, res) => {
-  try {
-    const response = await footballApi.get("/competitions");
-    res.json(response.data);
-  } catch (error) {
-    console.error(error.response?.data || error.message);
-
-    res.status(500).json({
-      error: "Failed to fetch competitions",
-    });
-  }
+app.get("/api/test", (req, res) => {
+  res.json({
+    success: true,
+  });
 });
 
-/*
- * GET World Cup teams
- */
+//
+// ===========================
+// WORLD CUP TEAMS
+// ===========================
+//
+
 app.get("/api/worldcup/teams", async (req, res) => {
   try {
     const response = await footballApi.get(
@@ -54,7 +44,10 @@ app.get("/api/worldcup/teams", async (req, res) => {
 
     res.json(response.data);
   } catch (error) {
-    console.error(error.response?.data || error.message);
+    console.error(
+      "WORLD CUP TEAMS ERROR:",
+      error.response?.data || error.message
+    );
 
     res.status(500).json({
       error: "Failed to fetch World Cup teams",
@@ -62,24 +55,141 @@ app.get("/api/worldcup/teams", async (req, res) => {
   }
 });
 
-/*
- * GET single team details
- */
+//
+// ===========================
+// SINGLE TEAM
+// ===========================
+//
+
 app.get("/api/worldcup/team/:id", async (req, res) => {
   try {
-    const { id } = req.params;
-
-    const response = await footballApi.get(`/teams/${id}`);
+    const response = await footballApi.get(
+      `/teams/${req.params.id}`
+    );
 
     res.json(response.data);
   } catch (error) {
-    console.error(error.response?.data || error.message);
+    console.error(
+      "TEAM ERROR:",
+      error.response?.data || error.message
+    );
 
     res.status(500).json({
-      error: "Failed to fetch team details",
+      error: "Failed to fetch team",
     });
   }
 });
+
+//
+// ===========================
+// WORLD CUP MATCHES
+// ===========================
+//
+
+app.get("/api/worldcup/matches", async (req, res) => {
+  try {
+    const response = await footballApi.get(
+      `/competitions/${WORLD_CUP_CODE}/matches`
+    );
+
+    res.json(response.data);
+  } catch (error) {
+    console.error(
+      "MATCHES ERROR:",
+      error.response?.data || error.message
+    );
+
+    res.status(500).json({
+      error: "Failed to fetch matches",
+    });
+  }
+});
+
+// ==========================================
+// WORLD CUP STANDINGS
+// ==========================================
+
+app.get("/api/worldcup/standings", async (req, res) => {
+  try {
+
+    const response = await footballApi.get(
+      `/competitions/${WORLD_CUP_CODE}/standings`
+    );
+
+    res.json(response.data);
+
+  } catch (error) {
+
+    console.error(
+      "STANDINGS ERROR:",
+      error.response?.data || error.message
+    );
+
+    res.status(500).json({
+      error: "Failed to fetch standings",
+    });
+
+  }
+});
+
+//
+// ===========================
+// WORLD CUP BRACKET
+// ===========================
+//
+
+app.get("/api/worldcup/bracket", async (req, res) => {
+  try {
+    const response = await footballApi.get(
+      `/competitions/${WORLD_CUP_CODE}/matches`
+    );
+
+    res.json(response.data);
+
+  } catch (error) {
+
+    console.error(
+      "BRACKET ERROR:",
+      error.response?.data || error.message
+    );
+
+    res.status(500).json({
+      error: "Failed to fetch bracket",
+    });
+
+  }
+});
+
+//
+// ===========================
+// SINGLE MATCH
+// ===========================
+//
+
+app.get("/api/worldcup/match/:id", async (req, res) => {
+  try {
+    const response = await footballApi.get(
+      `/matches/${req.params.id}`
+    );
+
+    res.json(response.data);
+  } catch (error) {
+    console.error(
+      "MATCH ERROR:",
+      error.response?.data || error.message
+    );
+
+    res.status(500).json({
+      error: "Failed to fetch match",
+    });
+  }
+});
+
+//
+// ===========================
+// START SERVER
+// ===========================
+//
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);

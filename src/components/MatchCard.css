@@ -1,0 +1,192 @@
+.match-card {
+  background: white;
+  border-radius: 22px;
+  padding: 26px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+
+  transition: all .25s ease;
+
+  position: relative;
+
+  overflow: hidden;
+
+  cursor: pointer;
+}
+
+.match-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow: 0 20px 42px rgba(0,0,0,.14);
+}
+
+.match-card::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 6px;
+  height: 100%;
+}
+
+.match-card.live::before {
+  background: #14c65a;
+}
+
+.match-card.finished::before {
+  background: #555;
+}
+
+.match-card.scheduled::before {
+  background: #1f4ea8;
+}
+
+.match-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 26px;
+}
+
+.status-pill {
+  color: white;
+
+  padding: 7px 14px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+.status-pill.live {
+  background: #14c65a;
+}
+
+.status-pill.finished {
+  background: #555;
+}
+
+.status-pill.scheduled {
+  background: #1f4ea8;
+}
+
+.match-stage {
+  font-size: 13px;
+
+  color: #777;
+
+  font-weight: 700;
+
+  letter-spacing: .4px;
+}
+
+.team-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 18px;
+}
+
+.team-info {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+.team-info span {
+  font-size: 17px;
+
+  font-weight: 600;
+
+  color: #222;
+}
+
+.team-crest {
+  width: 42px;
+
+  height: 42px;
+
+  object-fit: contain;
+}
+
+.team-score {
+  font-size: 34px;
+
+  font-weight: 800;
+
+  color: #111;
+
+  min-width: 36px;
+
+  text-align: right;
+}
+
+.match-divider {
+  margin: 22px 0;
+
+  height: 1px;
+
+  background: #ececec;
+}
+
+.match-footer {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-end;
+
+  gap: 20px;
+}
+
+.footer-left {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.footer-item {
+  font-size: 14px;
+
+  color: #666;
+}
+
+.matchday {
+  font-size: 13px;
+
+  color: #1f4ea8;
+
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+
+  .match-card {
+    padding: 22px;
+  }
+
+  .team-score {
+    font-size: 28px;
+  }
+
+  .team-info span {
+    font-size: 16px;
+  }
+
+}

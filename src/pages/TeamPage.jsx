@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import PlayerCard from "../components/PlayerCard";
 import "./TeamPage.css";
+import teamThemes from "../data/teamThemes";
+import { getTeam } from "../services/footballApi";
 
 function TeamPage() {
   const { id } = useParams();
@@ -14,16 +16,8 @@ function TeamPage() {
   useEffect(() => {
     async function fetchTeam() {
       try {
-        const response = await fetch(
-          `http://localhost:3001/api/worldcup/team/${id}`
-        );
-
-        if (!response.ok) {
-          throw new Error("Unable to load team.");
-        }
-
-        const data = await response.json();
-        setTeam(data);
+const data = await getTeam(id);
+setTeam(data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -34,9 +28,15 @@ function TeamPage() {
     fetchTeam();
   }, [id]);
 
-  if (loading) return <h2 className="loading">Loading...</h2>;
+  if (loading) {
+    return <h2 className="loading">Loading...</h2>;
+  }
 
-  if (error) return <h2 className="loading">{error}</h2>;
+  if (error) {
+    return <h2 className="loading">{error}</h2>;
+  }
+
+  const theme = teamThemes[team.tla] || teamThemes.default;
 
   const groupPlayers = (position) =>
     team.squad.filter((player) => player.position === position);
@@ -50,7 +50,13 @@ function TeamPage() {
         ← Back to Teams
       </button>
 
-      <div className="team-header">
+      <div
+        className="team-header"
+        style={{
+          background: theme.gradient,
+          color: theme.secondary,
+        }}
+      >
         <img
           src={team.crest}
           alt={team.name}
@@ -65,23 +71,67 @@ function TeamPage() {
 
         <div className="team-summary-card">
           <div className="summary-item">
-            <span className="summary-label">👤 Coach</span>
-            <span>{team.coach?.name}</span>
+            <div className="summary-left">
+              <div className="summary-icon">👤</div>
+
+              <div>
+                <div className="summary-label">
+                  Coach
+                </div>
+
+                <div className="summary-value">
+                  {team.coach?.name || "Unknown"}
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="summary-item">
-            <span className="summary-label">🏆 Founded</span>
-            <span>{team.founded}</span>
+            <div className="summary-left">
+              <div className="summary-icon">🏆</div>
+
+              <div>
+                <div className="summary-label">
+                  Founded
+                </div>
+
+                <div className="summary-value">
+                  {team.founded || "N/A"}
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="summary-item">
-            <span className="summary-label">👥 Squad</span>
-            <span>{team.squad.length} Players</span>
+            <div className="summary-left">
+              <div className="summary-icon">👥</div>
+
+              <div>
+                <div className="summary-label">
+                  Squad
+                </div>
+
+                <div className="summary-value">
+                  {team.squad?.length || 0} Players
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="summary-item">
-            <span className="summary-label">🎨 Colours</span>
-            <span>{team.clubColors}</span>
+            <div className="summary-left">
+              <div className="summary-icon">🎨</div>
+
+              <div>
+                <div className="summary-label">
+                  Colours
+                </div>
+
+                <div className="summary-value">
+                  {team.clubColors || "Unknown"}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,75 +1,144 @@
 .team-card {
+
   background: white;
-  border-radius: 14px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: 0.2s;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  box-shadow: 0 12px 28px rgba(0,0,0,.08);
+
+  transition: .3s;
+
+  display: flex;
+
+  flex-direction: column;
 }
 
 .team-card:hover {
-  transform: translateY(-4px);
+
+  transform: translateY(-10px);
+
+  box-shadow: 0 20px 42px rgba(0,0,0,.15);
+}
+
+.team-card-top {
+
+  background: linear-gradient(
+    135deg,
+    #eef5ff,
+    #dfeaff
+  );
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 35px;
 }
 
 .team-logo {
-  width: 70px;
-  height: 70px;
+
+  width: 110px;
+
+  height: 110px;
+
   object-fit: contain;
-  margin-bottom: 12px;
+
+  transition: .3s;
 }
 
-.team-card h3 {
-  margin-bottom: 10px;
+.team-card:hover .team-logo {
+
+  transform: scale(1.08);
 }
 
-.team-card p {
-  margin: 6px 0;
+.team-card-body {
+
+  padding: 24px;
+}
+
+.team-card-body h3 {
+
+  margin: 0 0 20px;
+
+  font-size: 24px;
+
+  color: #1f4ea8;
+}
+
+.team-info-row {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 18px;
+
+  font-size: 15px;
+}
+
+.info-label {
+
+  color: #777;
+
+  font-weight: 600;
+}
+
+.info-value {
+
+  text-align: right;
+
+  font-weight: 600;
+
+  color: #222;
+}
+
+.team-code {
+
+  background: #1f4ea8;
+
+  color: white;
+
+  font-weight: 700;
+
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  font-size: 13px;
 }
 
 .view-btn {
+
+  margin-top: 25px;
+
   width: 100%;
-  margin-top: 14px;
-  padding: 10px;
+
   border: none;
-  border-radius: 8px;
-  background: #0077cc;
+
+  background: #1f4ea8;
+
   color: white;
+
   font-size: 15px;
+
+  font-weight: 700;
+
+  padding: 14px;
+
+  border-radius: 12px;
+
   cursor: pointer;
-  transition: background 0.2s;
+
+  transition: .25s;
 }
 
 .view-btn:hover {
-  background: #005fa3;
-}
 
-.team-subtitle {
-  color: #666;
-  margin-top: -8px;
-  margin-bottom: 30px;
-  font-size: 1.1rem;
-}
-
-.team-summary-card {
-  max-width: 600px;
-  margin: auto;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  padding: 25px 30px;
-}
-
-.summary-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 14px 0;
-  border-bottom: 1px solid #ececec;
-}
-
-.summary-item:last-child {
-  border-bottom: none;
-}
-
-.summary-label {
-  font-weight: 700;
-  color: #1f4ea8;
+  background: #163b80;
 }

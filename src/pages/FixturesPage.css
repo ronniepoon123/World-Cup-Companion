@@ -1,0 +1,78 @@
+.fixtures-page {
+  max-width: 1400px;
+  margin: auto;
+  padding: 40px 30px 60px;
+}
+
+.fixtures-page h1 {
+  margin-bottom: 8px;
+  color: #1f4ea8;
+  font-size: 42px;
+}
+
+.fixtures-subtitle {
+  color: #666;
+  margin-bottom: 35px;
+  font-size: 18px;
+}
+
+.fixture-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.fixture-filters button {
+  border: none;
+  background: white;
+  color: #444;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  transition: .25s;
+}
+
+.fixture-filters button:hover {
+  background: #eef4ff;
+}
+
+.fixture-filters button.active {
+  background: #1f4ea8;
+  color: white;
+}
+
+.fixture-day {
+  margin-bottom: 55px;
+}
+
+.fixture-day h2 {
+  margin-bottom: 22px;
+  color: #1f4ea8;
+  border-left: 6px solid #1f4ea8;
+  padding-left: 14px;
+}
+
+.fixtures-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+
+  .fixtures-page {
+    padding: 20px;
+  }
+
+  .fixtures-page h1 {
+    font-size: 34px;
+  }
+
+  .fixtures-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
