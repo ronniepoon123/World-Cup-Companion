@@ -1,4 +1,6 @@
-const API_BASE = "http://localhost:3001/api/worldcup";
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  "http://localhost:3001/api/worldcup";
 
 async function request(endpoint) {
   const response = await fetch(`${API_BASE}${endpoint}`);
