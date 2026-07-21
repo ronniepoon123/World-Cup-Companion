@@ -34,6 +34,20 @@ function MatchHero({ match }) {
         🏆 {match.competition.name}
       </div>
 
+      <div className="match-status-row">
+        <span
+          className={`match-status ${
+            match.status === "IN_PLAY"
+              ? "live"
+              : match.status === "FINISHED"
+              ? "finished"
+              : "scheduled"
+          }`}
+        >
+          {status}
+        </span>
+      </div>
+
       <div className="hero-content">
 
         <div className="hero-team">
@@ -48,54 +62,26 @@ function MatchHero({ match }) {
 
         </div>
 
-        <div className="hero-score">
+        <div className="hero-centre">
 
-          <div className="score-row">
+          <div className="hero-score">
+            <span>{homeScore}</span>
 
-            <span className="team-score">
-              {homeScore}
-            </span>
+            <span className="score-divider">-</span>
 
-            <div
-              className={`match-status ${
-                match.status === "IN_PLAY"
-                  ? "live"
-                  : match.status === "FINISHED"
-                  ? "finished"
-                  : "scheduled"
-              }`}
-            >
-              {status}
-            </div>
-
-            <span className="team-score">
-              {awayScore}
-            </span>
-
+            <span>{awayScore}</span>
           </div>
 
           <div className="hero-meta">
-
-            <span>
-              {match.stage.replaceAll("_", " ")}
-            </span>
-
-            <span>•</span>
-
-            <span>
-              Matchday {match.matchday}
-            </span>
-
+            {match.stage.replaceAll("_", " ")}
+            {" • "}
+            Matchday {match.matchday}
           </div>
 
           <div className="hero-date">
-
             {date}
-
-            <span>•</span>
-
+            {" • "}
             {time}
-
           </div>
 
         </div>
