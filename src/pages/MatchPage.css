@@ -105,22 +105,16 @@
 
 }
 
-.live {
-
+.match-status.live {
   background: #d62828;
-
 }
 
-.finished {
-
+.match-status.finished {
   background: #1f4ea8;
-
 }
 
-.scheduled {
-
+.match-status.scheduled {
   background: #777;
-
 }
 
 .hero-content {
