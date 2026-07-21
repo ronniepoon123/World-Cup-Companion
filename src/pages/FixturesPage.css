@@ -1,47 +1,66 @@
 .fixtures-page {
   max-width: 1400px;
   margin: auto;
-  padding: 40px 30px 60px;
+  padding: 40px 30px 70px;
+  min-height: 100vh;
+
+  background:
+    linear-gradient(rgba(18,95,43,.92), rgba(9,68,31,.95)),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,.04) 0px,
+      rgba(255,255,255,.04) 120px,
+      rgba(255,255,255,.08) 120px,
+      rgba(255,255,255,.08) 240px
+    );
+
+  border-radius: 28px;
 }
 
 .fixtures-page h1 {
-  margin-bottom: 8px;
-  color: #1f4ea8;
-  font-size: 42px;
+  color: white;
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 10px;
 }
 
 .fixtures-subtitle {
-  color: #666;
-  margin-bottom: 35px;
+  color: rgba(255,255,255,.9);
   font-size: 18px;
+  margin-bottom: 40px;
 }
 
 .fixture-filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 40px;
+  gap: 16px;
+  margin-bottom: 45px;
 }
 
 .fixture-filters button {
-  border: none;
-  background: white;
-  color: #444;
-  padding: 12px 22px;
+  background: rgba(255,255,255,.15);
+  color: white;
+  border: 1px solid rgba(255,255,255,.25);
+  backdrop-filter: blur(10px);
+
+  padding: 13px 24px;
+
   border-radius: 999px;
-  font-weight: 600;
+
+  font-weight: 700;
+
   cursor: pointer;
-  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+
   transition: .25s;
 }
 
 .fixture-filters button:hover {
-  background: #eef4ff;
+  background: rgba(255,255,255,.25);
 }
 
 .fixture-filters button.active {
-  background: #1f4ea8;
-  color: white;
+  background: white;
+  color: #0b6a2b;
 }
 
 .fixture-day {
@@ -49,30 +68,33 @@
 }
 
 .fixture-day h2 {
-  margin-bottom: 22px;
-  color: #1f4ea8;
-  border-left: 6px solid #1f4ea8;
-  padding-left: 14px;
+  color: white;
+  font-size: 34px;
+  margin-bottom: 24px;
+
+  border-left: 6px solid white;
+
+  padding-left: 16px;
 }
 
 .fixtures-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill,minmax(370px,1fr));
+  gap: 28px;
 }
 
-@media (max-width: 768px) {
+@media (max-width:900px){
 
-  .fixtures-page {
-    padding: 20px;
-  }
+.fixtures-page{
+padding:24px;
+}
 
-  .fixtures-page h1 {
-    font-size: 34px;
-  }
+.fixtures-page h1{
+font-size:34px;
+}
 
-  .fixtures-grid {
-    grid-template-columns: 1fr;
-  }
+.fixtures-grid{
+grid-template-columns:1fr;
+}
 
 }
