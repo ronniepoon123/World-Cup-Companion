@@ -1,376 +1,313 @@
-.bracket-container{
+.bracket-container {
+  display: grid;
+  grid-template-columns:
+    300px
+    300px
+    300px
+    300px
+    280px;
 
-display:grid;
+  column-gap: 80px;
 
-grid-template-columns:
+  align-items: start;
 
-300px
-300px
-300px
-300px
-220px;
+  overflow-x: auto;
 
-column-gap:80px;
+  padding: 40px;
 
-align-items:start;
-
-overflow-x:auto;
-
-padding:40px;
-
-min-width:1800px;
-
-}
-
-.bracket-column{
-
-display:flex;
-
-flex-direction:column;
-
-width:300px;
-
-position:relative;
-
-}
-
-.bracket-column h2{
-
-text-align:center;
-
-margin-bottom:28px;
-
-font-size:20px;
-
-font-weight:700;
-
-letter-spacing:.4px;
-
-color:#1b1b1b;
-
-}
-
-/* ========================= */
-
-.bracket-match{
-
-display:block;
-
-position:relative;
-
-background:white;
-
-border-radius:18px;
-
-padding:16px 18px;
-
-margin-bottom:18px;
-
-text-decoration:none;
-
-color:inherit;
-
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-transition:.25s;
-
-border:1px solid #ececec;
-
-}
-
-.bracket-match:hover{
-
-transform:
-
-translateY(-5px)
-
-scale(1.01);
-
-box-shadow:
-
-0 18px 32px
-
-rgba(0,0,0,.12);
-
-}
-
-.bracket-team{
-
-display:flex;
-
-align-items:center;
-
-gap:12px;
-
-padding:10px 0;
-
-border-radius:8px;
-
-}
-
-.bracket-team img{
-
-width:30px;
-
-height:30px;
-
-object-fit:contain;
-
-}
-
-.bracket-team span{
-
-flex:1;
-
-font-size:15px;
-
-font-weight:500;
-
-}
-
-.bracket-team strong{
-
-font-size:19px;
-
-font-weight:700;
-
-}
-
-/* Winner */
-
-.winner{
-
-background:
-
-linear-gradient(
-
-90deg,
-
-#f5fff2,
-
-white
-
-);
-
-border-left:
-
-4px solid #1db954;
-
-font-weight:700;
-
-}
-
-.winner strong{
-
-color:#198754;
-
-}
-
-/* ========================= */
-
-.round-16 .bracket-match{
-
-margin-bottom:32px;
-
-}
-
-.quarter-finals{
-
-padding-top:90px;
-
-}
-
-.quarter-finals .bracket-match{
-
-margin-bottom:230px;
-
-}
-
-.semi-finals{
-
-padding-top:220px;
-
-}
-
-.semi-finals .bracket-match{
-
-margin-bottom:470px;
-
-}
-
-.final-round{
-
-padding-top:420px;
-
-}
-
-/* ========================= */
-
-/* =====================================
-   Horizontal connectors
-===================================== */
-
-.bracket-match::after{
-
-content:"";
-
-position:absolute;
-
-top:50%;
-
-right:-42px;
-
-width:42px;
-
-height:2px;
-
-background:#d9d9d9;
-
-transform:translateY(-50%);
-
-}
-
-/* Final has no outgoing connector */
-
-.final-round .bracket-match::after{
-
-display:none;
-
+  min-width: 1860px;
 }
 
 /* =====================================
-   Incoming vertical connector
+   Columns
 ===================================== */
+
+.bracket-column {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  position: relative;
+}
+
+.bracket-column h2 {
+  text-align: center;
+  margin-bottom: 28px;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  color: #1b1b1b;
+}
+
+/* =====================================
+   Match Card
+===================================== */
+
+.bracket-match {
+  display: block;
+  position: relative;
+
+  background: white;
+
+  border-radius: 18px;
+
+  padding: 16px 18px;
+
+  margin-bottom: 18px;
+
+  text-decoration: none;
+  color: inherit;
+
+  border: 1px solid #e7e7e7;
+
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+
+  transition: all .25s ease;
+}
+
+.bracket-match:hover {
+  transform: translateY(-5px);
+
+  border-color: #1db954;
+
+  box-shadow: 0 18px 34px rgba(0,0,0,.15);
+}
+
+/* =====================================
+   Teams
+===================================== */
+
+.bracket-team {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px 0;
+
+  border-radius: 8px;
+}
+
+.bracket-team img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.bracket-team span {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.bracket-team strong {
+  font-size: 19px;
+  font-weight: 800;
+  color: #222;
+}
+
+/* =====================================
+   Winner Highlight
+===================================== */
+
+.winner {
+  background: linear-gradient(
+    90deg,
+    #f4fff3,
+    #ffffff
+  );
+
+  border-left: 5px solid #22b14c;
+}
+
+.winner strong {
+  color: #198754;
+}
+
+/* =====================================
+   Vertical Alignment
+===================================== */
+
+.round-16 .bracket-match {
+  margin-bottom: 32px;
+}
+
+.quarter-finals {
+  padding-top: 90px;
+}
+
+.quarter-finals .bracket-match {
+  margin-bottom: 230px;
+}
+
+.semi-finals {
+  padding-top: 220px;
+}
+
+.semi-finals .bracket-match {
+  margin-bottom: 470px;
+}
+
+.final-round {
+  padding-top: 420px;
+}
+
+/* =====================================
+   Connector Lines
+===================================== */
+
+.bracket-match::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  right: -42px;
+
+  width: 42px;
+  height: 3px;
+
+  background: #d7dce3;
+
+  transform: translateY(-50%);
+}
+
+.final-round .bracket-match::after {
+  display: none;
+}
 
 .quarter-finals .bracket-match::before,
-
 .semi-finals .bracket-match::before,
+.final-round .bracket-match::before {
 
-.final-round .bracket-match::before{
+  content: "";
 
-content:"";
+  position: absolute;
 
-position:absolute;
+  left: -42px;
+  top: -95px;
 
-left:-42px;
+  width: 3px;
+  height: 190px;
 
-top:-95px;
-
-width:2px;
-
-height:190px;
-
-background:#d9d9d9;
-
+  background: #d7dce3;
 }
 
-/* ========================= */
+/* =====================================
+   Champion Card
+===================================== */
 
-.bracket-champion{
+.bracket-champion {
 
-display:flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-flex-direction:column;
+  margin-top: 430px;
 
-justify-content:center;
+  min-height: 360px;
 
-align-items:center;
+  padding: 36px 28px;
 
-padding-top:515px;
+  text-align: center;
 
-text-align:center;
+  border-radius: 28px;
 
+  background: linear-gradient(
+    135deg,
+    #ffe082,
+    #f9c74f
+  );
+
+  border: 2px solid rgba(255,255,255,.45);
+
+  box-shadow: 0 20px 42px rgba(0,0,0,.18);
 }
 
-.champion-trophy{
+.champion-trophy {
 
-font-size:100px;
+  font-size: 72px;
 
-margin-bottom:24px;
+  margin-bottom: 18px;
 
-filter:drop-shadow(
+  filter: drop-shadow(
+    0 8px 16px rgba(0,0,0,.18)
+  );
 
-0 12px 22px
-
-rgba(0,0,0,.20)
-
-);
-
-animation:
-
-float 3s ease-in-out infinite;
-
+  animation: float 3s ease-in-out infinite;
 }
 
-.bracket-champion h2{
+.bracket-champion h2 {
 
-margin:0;
+  margin: 0;
 
-font-size:24px;
+  font-size: 24px;
 
+  font-weight: 800;
+
+  color: #222;
 }
 
-.bracket-champion h3{
+.bracket-champion h3 {
 
-margin-top:10px;
+  margin-top: 10px;
 
-font-size:18px;
+  font-size: 17px;
 
-color:#888;
+  font-weight: 600;
 
+  color: #555;
 }
 
-.bracket-champion p{
+.champion-crest {
 
-margin-top:15px;
+  width: 90px;
+  height: 90px;
 
-font-size:15px;
+  object-fit: contain;
 
-color:#555;
-
+  margin: 24px 0 18px;
 }
 
-.round-16{
+.champion-name {
 
-position:relative;
+  margin: 0;
 
+  font-size: 32px;
+
+  font-weight: 800;
+
+  line-height: 1.2;
+
+  color: #111;
 }
 
-.quarter-finals{
+/* =====================================
+   Positioning
+===================================== */
 
-position:relative;
-
+.round-16,
+.quarter-finals,
+.semi-finals,
+.final-round {
+  position: relative;
 }
 
-.semi-finals{
+/* =====================================
+   Trophy Animation
+===================================== */
 
-position:relative;
+@keyframes float {
 
-}
+  0% {
+    transform: translateY(0);
+  }
 
-.final-round{
+  50% {
+    transform: translateY(-8px);
+  }
 
-position:relative;
+  100% {
+    transform: translateY(0);
+  }
 
-}
-
-@keyframes float{
-
-0%{
-
-transform:translateY(0);
-
-}
-
-50%{
-
-transform:translateY(-8px);
-
-}
-
-100%{
-
-transform:translateY(0);
-
-}
 }
