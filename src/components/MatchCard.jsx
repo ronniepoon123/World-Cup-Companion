@@ -1,7 +1,9 @@
 import "./MatchCard.css";
 import { useNavigate } from "react-router-dom";
+
 function MatchCard({ match }) {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
   const homeScore = match.score?.fullTime?.home;
   const awayScore = match.score?.fullTime?.away;
 
@@ -41,12 +43,10 @@ function MatchCard({ match }) {
 
   return (
     <div
-  className={`match-card ${statusClass}`}
-  onClick={() => navigate(`/match/${match.id}`)}
->
-
+      className={`match-card ${statusClass}`}
+      onClick={() => navigate(`/match/${match.id}`)}
+    >
       <div className="match-header">
-
         <span className={`status-pill ${statusClass}`}>
           {status}
         </span>
@@ -54,13 +54,10 @@ function MatchCard({ match }) {
         <span className="match-stage">
           {stage}
         </span>
-
       </div>
 
       <div className="team-row">
-
         <div className="team-info">
-
           <img
             src={match.homeTeam.crest}
             alt={match.homeTeam.name}
@@ -68,23 +65,15 @@ function MatchCard({ match }) {
           />
 
           <span>{match.homeTeam.shortName}</span>
-
         </div>
 
         <div className="team-score">
-
-          {status === "Scheduled"
-            ? "-"
-            : homeScore}
-
+          {status === "Scheduled" ? "-" : homeScore}
         </div>
-
       </div>
 
       <div className="team-row">
-
         <div className="team-info">
-
           <img
             src={match.awayTeam.crest}
             alt={match.awayTeam.name}
@@ -92,49 +81,37 @@ function MatchCard({ match }) {
           />
 
           <span>{match.awayTeam.shortName}</span>
-
         </div>
 
         <div className="team-score">
-
-          {status === "Scheduled"
-            ? "-"
-            : awayScore}
-
+          {status === "Scheduled" ? "-" : awayScore}
         </div>
-
       </div>
 
       <div className="match-divider" />
 
       <div className="match-footer">
-
         <div className="footer-left">
-
           <div className="footer-item">
             🕒 {time}
           </div>
 
-          {match.venue && (
-            <div className="footer-item">
-              📍 {match.venue}
-            </div>
-          )}
-
+          {match.venue &&
+            match.venue !== "TBC" && (
+              <div className="footer-item">
+                📍 {match.venue}
+              </div>
+            )}
         </div>
 
         <div className="footer-right">
-
           {match.matchday && (
             <div className="matchday">
               Matchday {match.matchday}
             </div>
           )}
-
         </div>
-
       </div>
-
     </div>
   );
 }

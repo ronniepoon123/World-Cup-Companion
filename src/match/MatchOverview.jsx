@@ -17,23 +17,23 @@ function MatchOverview({ match }) {
       title: "Kickoff",
       value: kickoff.toLocaleString(),
     },
-    {
+  ];
+
+  if (match.venue && match.venue !== "TBC") {
+    cards.push({
       icon: "📍",
       title: "Venue",
-      value: match.venue || "TBC",
-    },
-  ];
+      value: match.venue,
+    });
+  }
 
   return (
     <div className="overview-grid">
-
       {cards.map((card) => (
-
         <div
           key={card.title}
           className="overview-tile"
         >
-
           <div className="tile-icon">
             {card.icon}
           </div>
@@ -45,11 +45,8 @@ function MatchOverview({ match }) {
           <div className="tile-value">
             {card.value}
           </div>
-
         </div>
-
       ))}
-
     </div>
   );
 }
