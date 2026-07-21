@@ -1,6 +1,6 @@
 # 🏆 World Cup Companion
 
-A modern React web application for following the **FIFA World Cup 2026**.
+A React-based web application for following the **FIFA World Cup 2026**.
 
 The application provides fixtures, results, standings, knockout bracket, team information and detailed match pages through the Football-Data.org API.
 
