@@ -17,6 +17,10 @@ function Bracket({ matches }) {
     (match) => match.stage === "SEMI_FINALS"
   );
 
+  const thirdPlace = matches.filter(
+    (match) => match.stage === "THIRD_PLACE"
+  );
+
   const final = matches.filter(
     (match) => match.stage === "FINAL"
   );
@@ -57,11 +61,21 @@ function Bracket({ matches }) {
         className="semi-finals"
       />
 
-      <BracketColumn
-        title="Final"
-        matches={final}
-        className="final-round"
-      />
+      <div className="final-section">
+
+        <BracketColumn
+          title="Final"
+          matches={final}
+          className="final-round"
+        />
+
+        <BracketColumn
+          title="3rd Place Play-off"
+          matches={thirdPlace}
+          className="third-place"
+        />
+
+      </div>
 
       <BracketChampion champion={champion} />
 
