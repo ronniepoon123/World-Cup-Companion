@@ -19,7 +19,6 @@ function HomePage() {
       try {
         const data = await getMatches();
 
-        // Backend may return either an array or { matches: [...] }
         const matchList = Array.isArray(data)
           ? data
           : data.matches || [];
@@ -69,10 +68,51 @@ function HomePage() {
         <h1>🏆 FIFA WORLD CUP 2026</h1>
 
         <p>
-          One Tournament.
-          Forty-Eight Nations.
-          One Champion.
+          104 matches.
+          48 Nations.
+          1 Champion.
         </p>
+
+      </div>
+
+      {/* ===============================
+          QUICK ACCESS
+      =============================== */}
+
+      <SectionHeader
+        title="Quick Access"
+        subtitle="Everything in one place."
+      />
+
+      <div className="quick-grid">
+
+        <DashboardActionCard
+          icon="👥"
+          title="Teams"
+          subtitle="All 48 nations"
+          to="/teams"
+        />
+
+        <DashboardActionCard
+          icon="📅"
+          title="Fixtures"
+          subtitle="Match schedule"
+          to="/fixtures"
+        />
+
+        <DashboardActionCard
+          icon="🏆"
+          title="Standings"
+          subtitle="Browse every group"
+          to="/standings"
+        />
+
+        <DashboardActionCard
+          icon="🏟"
+          title="Knockout"
+          subtitle="Tournament bracket"
+          to="/knockout"
+        />
 
       </div>
 
@@ -134,43 +174,6 @@ function HomePage() {
           </DashboardSection>
         </>
       )}
-
-      <SectionHeader
-        title="Quick Access"
-        subtitle="Everything in one place."
-      />
-
-      <div className="quick-grid">
-
-        <DashboardActionCard
-          icon="👥"
-          title="Teams"
-          subtitle="All 48 nations"
-          to="/teams"
-        />
-
-        <DashboardActionCard
-          icon="📅"
-          title="Fixtures"
-          subtitle="Match schedule"
-          to="/fixtures"
-        />
-
-       <DashboardActionCard
-  icon="🏆"
-  title="Standings"
-  subtitle="Browse every group"
-  to="/standings"
-/>
-
-        <DashboardActionCard
-  icon="🏟"
-  title="Knockout"
-  subtitle="Tournament bracket"
-  to="/knockout"
-/>
-
-      </div>
 
     </div>
   );
