@@ -45,15 +45,30 @@ function Navbar() {
         </NavLink>
 
         <NavLink
-          to="/"
+          to="/standings"
+          className={({ isActive }) =>
+            isActive ? "active" : ""
+          }
         >
           📊 Standings
         </NavLink>
 
         <NavLink
-          to="/"
+          to="/teams"
+          className={({ isActive }) =>
+            isActive ? "active" : ""
+          }
         >
           🌍 Teams
+        </NavLink>
+
+        <NavLink
+          to="/knockout"
+          className={({ isActive }) =>
+            isActive ? "active" : ""
+          }
+        >
+          🏆 Knockout
         </NavLink>
 
       </nav>
