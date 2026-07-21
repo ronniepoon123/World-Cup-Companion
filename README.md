@@ -1,103 +1,192 @@
-# ⚽ World Cup Companion
+# 🏆 World Cup Companion
 
-A React-based World Cup companion application that allows users to explore national teams, view team information, and navigate through tournament-related data.
+A modern React web application for following the **FIFA World Cup 2026**.
 
-The project is built as a modern frontend application focused on clean UI, reusable components, and interactive team browsing.
+The application provides fixtures, results, standings, knockout bracket, team information and detailed match pages through the Football-Data.org API.
 
----
-
-## 📌 Features
-
-### 🏆 Team Directory
-- Browse participating World Cup teams
-- View team cards with:
-  - National team logo
-  - Team name
-  - Basic information
-  - Navigation to detailed team pages
-
-### 🌎 Team Details Page
-- Dedicated page for each team
-- Displays team summary information including:
-  - Team details
-  - Tournament-related information
-  - Key statistics
-
-### 🎨 User Interface
-- Responsive card-based design
-- Hover animations for better interaction
-- Clean sports dashboard-style layout
-- Reusable React components
+**Live Demo:** https://world-cup-companion-amber.vercel.app/
 
 ---
 
-## 🛠️ Tech Stack
+## Features
+
+### 🏠 Dashboard
+- Banner for FIFA World Cup 2026
+- Live matches
+- Upcoming fixtures
+- Latest results
+- Quick Access navigation
+
+### ⚽ Fixtures
+- Complete World Cup fixture list
+- Live, scheduled and finished match status
+- Team crests
+- Scores
+- Match stage
+- Kick-off time
+- Matchday
+- Click any fixture to view detailed match information
+
+### 📊 Match Details
+Each match contains:
+- Competition
+- Match status
+- Team crests
+- Final score
+- Stage
+- Matchday
+- Kick-off time
+- Responsive hero layout
+
+### 👥 Teams
+- Browse all participating nations
+- Team crests
+- Country information
+- Individual team pages
+
+### 📈 Standings
+- Group standings
+- Wins
+- Draws
+- Losses
+- Goals scored
+- Goals conceded
+- Goal difference
+- Points
+
+### 🏟 Knockout Bracket
+- Round of 16
+- Quarter-finals
+- Semi-finals
+- Third Place Play-off
+- Final
+- Champion card displaying the tournament winner
+- Winning teams highlighted throughout the bracket
+
+---
+
+## Built With
 
 ### Frontend
-- React.js
+- React
 - React Router
+- Vite
 - CSS3
 
-### Development Tools
+### Backend
 - Node.js
-- npm
+- Express.js
+- Axios
+- dotenv
+
+### API
+- Football-Data.org REST API
+
+### Deployment
+- Git
+- GitHub
+- Vercel
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
+```
+world-cup-companion
+│
+├── src
+│   ├── components
+│   │   ├── Bracket
+│   │   ├── Dashboard
+│   │   ├── match
+│   │   ├── Navbar
+│   │   └── Team
+│   │
+│   ├── pages
+│   │   ├── HomePage
+│   │   ├── FixturesPage
+│   │   ├── MatchPage
+│   │   ├── KnockoutPage
+│   │   ├── StandingsPage
+│   │   └── TeamPage
+│   │
+│   ├── services
+│   │
+│   └── App.jsx
+│
+├── server
+│   ├── server.js
+│   └── routes
+│
+└── README.md
+```
+
+---
+
+## Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/ronniepoon123/World-Cup-Companion.git
+```
+
+Move into the project
+
+```bash
+cd World-Cup-Companion
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Create a `.env` file inside the project root
+
+```env
+FOOTBALL_API_KEY=YOUR_API_KEY #get from football-data.org
+```
+
+---
 
 ## Running the Project
 
-Open **two terminals in VS Code**.
-
-### Terminal 1 – Frontend (React + Vite)
-
-From the project root directory:
+Start the backend
 
 ```bash
-cd ~/world-cup-companion
-npm run dev
-```
-
-The frontend will start and display something similar to:
-
-```
-VITE v8.x.x ready
-
-➜ Local: http://localhost:5173
-```
-
-> If port 5173 is already in use, Vite may use another port (e.g. 5174).
-
----
-
-### Terminal 2 – Backend (Express API)
-
-From the project root directory:
-
-```bash
-cd ~/world-cup-companion
 npm run server
 ```
 
-The backend should start successfully and display:
+Start the frontend
 
+```bash
+npm run dev
 ```
-◇ injected env (1) from .env
-🚀 Server running on http://localhost:3001
-```
 
----
-
-### Open the application
-
-Visit:
+Open
 
 ```
 http://localhost:5173
 ```
 
-(or whichever port Vite reports).
+---
 
-The React frontend will communicate with the Express backend running on port **3001**.
+## Future Improvements
+
+- Live match auto-refresh
+- Match statistics
+- Player line-ups
+- Stadium information when available
+- Search and filter fixtures
+- Dark mode
+- Tournament statistics dashboard
+- Favourite teams
+- Match notifications
+
+---
+
+## Author
+
+Developed by **Ronnie Poon**
